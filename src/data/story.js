@@ -3,6 +3,7 @@
 // Images: add files to public/assets/ and use /assets/filename.jpg.
 // Alternatively import an image from src/assets/ and use it as src for automatic optimization.
 import lakePhoto from "../assets/lake.jpg";
+import natalieMay from "../assets/Natalie_May.jpg";
 const lake = {
   src: "https://dailynorthwestern.com/wp-content/uploads/2026/03/Photo_3-5-1.jpg",
   alt: "Illustrative photograph of surf on a sandy beach at sunset",
@@ -82,6 +83,23 @@ export const story = {
     {
       type: "paragraph",
       text: "May said first-time performers would often bring a big group of friends to cheer them on during their set, which is how many attendees discovered the venue.",
+    },
+    {
+      type: "audioCard",
+      id: "natalie-may-audio",
+      image: natalieMay,
+      imageAlt:
+        "Natalie May smiling outdoors in front of a brick building and trees",
+      description:
+        "Haikal Rozaidi found the Prattic after coming to Northwestern from Columbus. 'What the Prattic had ... it was lightning in a bottle,' he said.",
+      audioSrc: "/assets/NatalieMay_Embed_audio.mp3",
+      speaker: "Natalie",
+      audioLabel: "Listen to Natalie",
+      transcript: `I love stand-up and comedy in general, and I’ve been doing it for a while here, and I think a big reaction I hear when I tell people that is that they feel it's something they could never do. 
+
+It’s really scary to get up on stage and tell people, “I think I’m funny, I hope you think I’m funny too.” That's really scary. And so I think seeing people feel like they could do that and be confident that they would be received well was very cool, and I think it was cool to see people who never would have thought of themselves as comedians kind of tap into that side of themselves. 
+
+I think it made stand-up cool, and then kind of as an offshoot of that, I think it made vulnerability and trying something new cool. I mean, I just think it demonstrates what people can do when they see a gap and they just put their heads together and decide to try to fill it. Whether it's comedy or whether it's badminton or something else you’re interested in, if you don’t see the opportunity, you can make it for yourself. I think it’s gonna be hard to replicate it exactly, but I do think there's a void now. Now is the opportunity for someone to fill it.`, // Replace with the clip’s verbatim transcript.
     },
     {
       type: "paragraph",

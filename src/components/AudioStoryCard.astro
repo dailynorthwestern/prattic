@@ -1,0 +1,87 @@
+---
+import { Image } from 'astro:assets';
+import { asset, inline } from '../lib/content.js';
+const { block, id } = Astro.props;
+const cardId = block.id || id;
+const audioSrc = block.audioSrc ? asset(block.audioSrc) : undefined;
+const playLabel = block.audioLabel;
+const pauseLabel = block.speaker ? `Pause ${block.speaker}` : `Pause audio`;
+---
+<aside class="audio-story-card reading-column" id={cardId} aria-label={`Audio story: ${block.speaker || playLabel}`} data-audio-card>
+  <Image src={block.image} alt={block.imageAlt} widths={[400, 680, 1360]} sizes="(max-width: 720px) calc(100vw - 40px), 680px" loading="lazy" decoding="async" />
+  <div class="audio-card-content">
+    <p class="audio-card-description" set:html={inline(block.description)} />
+    <audio src={audioSrc} controls preload="metadata" aria-label={playLabel} hidden={!audioSrc} data-card-audio></audio>
+    <div class="audio-card-controls">
+      <button type="button" class="audio-card-play" disabled aria-pressed="false" aria-describedby={`${cardId}-status`} data-audio-play data-play-label={playLabel} data-pause-label={pauseLabel}>
+        <span class="audio-card-play-icon" aria-hidden="true" data-audio-icon>▶</span>
+        <span data-audio-label>{playLabel}</span>
+      </button>
+      <span aria-hidden="true">·</span>
+      <span class="audio-card-duration" aria-label="Audio duration" data-audio-duration>—:—</span>
+    </div>
+    <p class="audio-card-status" id={`${cardId}-status`} role="status" data-audio-status>{audioSrc ? 'Loading audio duration…' : 'Audio not yet available.'}</p>
+    <details class="audio-card-transcript">
+      <summary><span class="audio-card-chevron" aria-hidden="true">⌄</span><span class="transcript-read">Read transcript</span><span class="transcript-hide">Hide transcript</span></summary>
+      <div class="audio-card-transcript-text"><p>{block.transcript}</p></div>
+    </details>
+  </div>
+</aside>
+<script>
+  import '../scripts/audio-card.js';
+</script>
+<style lang="scss">
+.audio-story-card {
+  margin-block: 28px;
+  border: 1px solid #dedede;
+  border-radius: 5px;
+  overflow: hidden;
+  background: #fff;
+  color: #111;
+  font: 400 18px/1.4 Georgia, "Times New Roman", serif;
+  :global(img) { display: block; width: 100%; height: auto; }
+  audio { display: block; max-width: 100%; margin-bottom: 12px; }
+  button, summary { font: inherit; }
+  p { margin: 0; }
+}
+.audio-card-content { padding: 22px; }
+.audio-card-description { margin-bottom: 16px !important; overflow-wrap: anywhere; }
+.audio-card-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; color: #501e4c; font-size: 17px; }
+.audio-card-play {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #501e4c;
+  text-align: left;
+  cursor: pointer;
+  &:disabled { opacity: .55; cursor: not-allowed; }
+}
+.audio-card-play-icon { display: grid; place-items: center; flex: 0 0 34px; width: 34px; height: 34px; border: 1px solid currentColor; border-radius: 4px; font-size: 14px; }
+.audio-card-duration { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.audio-card-status { color: #666; font-size: 14px; margin-top: 4px !important; }
+.audio-card-transcript {
+  margin-top: 14px;
+  interpolate-size: allow-keywords;
+  summary { display: flex; align-items: center; gap: 8px; min-height: 44px; width: fit-content; color: #501e4c; cursor: pointer; list-style: none; }
+  summary::-webkit-details-marker { display: none; }
+  .transcript-hide { display: none; }
+  &[open] .transcript-read { display: none; }
+  &[open] .transcript-hide { display: inline; }
+  &[open] .audio-card-chevron { transform: rotate(180deg); }
+  &::details-content { height: 0; overflow: clip; transition: height .22s ease, content-visibility .22s allow-discrete; }
+  &[open]::details-content { height: auto; }
+}
+.audio-card-chevron { display: inline-block; transition: transform .22s ease; }
+.audio-card-transcript-text { padding-top: 8px; white-space: pre-line; overflow-wrap: anywhere; }
+@media (max-width: 700px) {
+  .audio-card-content { padding: 20px; }
+  .audio-story-card { font-size: 17px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .audio-card-chevron, .audio-card-transcript::details-content { transition: none; }
+}
+</style>

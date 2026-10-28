@@ -32,3 +32,13 @@ test('supports local native videos but rejects local iframe embeds', () => {
  value.blocks = [{type:'embed',src:'/assets/graphic.html',title:'Local embed'}];
  assert.throws(() => validateStory(value), /Media needs/);
 });
+
+test('audio cards allow missing audio and reject unsafe source URLs', () => {
+ const value = story();
+ value.blocks = [{type:'audioCard',image, imageAlt:'Natalie May outdoors',description:'A short introduction',audioLabel:'Listen to Jack',transcript:'Transcript goes here.',audioSrc:''}];
+ assert.doesNotThrow(() => validateStory(value));
+ value.blocks[0].audioSrc = 'javascript:bad';
+ assert.throws(() => validateStory(value), /Audio sources/);
+ value.blocks[0].audioSrc = '/assets/clip.mp3';
+ assert.doesNotThrow(() => validateStory(value));
+});

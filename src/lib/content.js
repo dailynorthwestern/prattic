@@ -20,11 +20,15 @@ export function validateStory(story) {
   image(story.hero);
   const ids = new Set();
   for (const block of story.blocks) {
-    if (!['paragraph','heading','image','quote','video','embed','scrolly'].includes(block.type)) throw new Error(`Unsupported story block: ${block.type}`);
+    if (!['paragraph','heading','image','quote','video','embed','scrolly','audioCard'].includes(block.type)) throw new Error(`Unsupported story block: ${block.type}`);
     if (block.id) { if (ids.has(block.id)) throw new Error(`Duplicate section id: ${block.id}`); ids.add(block.id); }
     if (['paragraph','heading','quote'].includes(block.type) && !block.text) throw new Error(`${block.type} needs text.`);
     if (block.type === 'image') image(block);
     if (['video','embed'].includes(block.type) && (!( /^https:\/\//.test(block.src) || (block.type === 'video' && block.kind === 'native' && /^\/(?!\/)/.test(block.src)) ) || !block.title)) throw new Error('Media needs an HTTPS embed src (or local native video path) and descriptive title.');
+    if (block.type === 'audioCard') {
+      if (!block.image || !block.imageAlt || !block.description || !block.audioLabel || !block.transcript) throw new Error('Audio cards need image, imageAlt, description, audioLabel, and transcript.');
+      if (block.audioSrc && !/^(https:\/\/|\/(?!\/))/.test(block.audioSrc)) throw new Error('Audio sources must be an HTTPS URL or a local absolute path.');
+    }
     if (block.type === 'scrolly') {
       if (!block.steps?.length || !block.title) throw new Error('Scrolly sections need a title and steps.');
       for (const step of block.steps) { image(step.image); if (!step.title || !step.text) throw new Error('Each scrolly step needs title and text.'); }

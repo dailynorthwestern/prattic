@@ -4,7 +4,7 @@
 // Alternatively import an image from src/assets/ and use it as src for automatic optimization.
 import lakePhoto from "../assets/lake.jpg";
 const lake = {
-  src: lakePhoto,
+  src: "https://dailynorthwestern.com/wp-content/uploads/2026/03/Photo_3-5-1.jpg",
   alt: "Illustrative photograph of surf on a sandy beach at sunset",
   width: 2400,
   height: 1600,

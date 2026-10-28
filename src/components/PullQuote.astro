@@ -1,0 +1,9 @@
+---
+import { inline } from '../lib/content.js';
+const { block } = Astro.props;
+---
+<figure class="pull-quote" data-reveal={block.animate}>
+  <span class="quote-mark" aria-hidden="true">“</span>
+  <blockquote><p set:html={inline(block.text)} /></blockquote>
+  <figcaption><strong>{block.attribution}</strong>{block.role && <span>{block.role}</span>}</figcaption>
+</figure>

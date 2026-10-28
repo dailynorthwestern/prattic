@@ -1,0 +1,23 @@
+---
+import '../styles/global.scss';
+const { story } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{story.title} | The Daily Northwestern</title>
+  <meta name="description" content={story.dek} />
+  <meta name="theme-color" content="#501e4c" />
+  <meta property="og:title" content={story.title} />
+  <meta property="og:description" content={story.dek} />
+  <meta property="og:type" content="article" />
+  <link rel="icon" type="image/png" href={`${import.meta.env.BASE_URL}favicon.png`} />
+  <link rel="stylesheet" href="https://use.typekit.net/ryk0qlm.css" />
+</head>
+<body id="top">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <slot />
+</body>
+</html>

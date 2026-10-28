@@ -1,0 +1,13 @@
+// Header/footer rules adapted from new-ryan-field/src/styles/global.css.
+.site-header { position: sticky; top: 0; z-index: 40; height: var(--header-height); background: rgba(255,255,255,.97); border-bottom: 1px solid #d9d6dc; }
+.header-inner { width: var(--shell); height: 100%; margin: auto; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; }
+.masthead { display: flex; align-items: center; justify-content: center; text-decoration: none; }
+.masthead img { width: min(430px, 45vw); height: auto; max-height: 60px; }
+.header-action { width: max-content; padding: .65rem 1.25rem; background: var(--burgundy); color: var(--white); border: 0; border-radius: 999px; font-family: var(--serif); font-size: .9rem; font-weight: 700; line-height: 1; text-decoration: none; }
+.header-action--donate { justify-self: end; }
+.header-action:hover { background: #321130; }
+.reading-progress { position: absolute; bottom: -1px; width: 100%; height: 2px; background: var(--purple); transform: scaleX(var(--progress, 0)); transform-origin: left; }
+.site-footer { background: var(--purple-dark); color: white; padding: 1.75rem 0; }
+.footer-credits { font-size: .9rem; line-height: 1.6; text-align: center; }
+.footer-credits p { margin: 0; }
+@media(max-width: 600px) { :root { --header-height: 58px; } body { padding-top: var(--header-height); } .site-header { position: fixed; inset: 0 0 auto; width: 100%; } .header-inner { grid-template-columns: 1fr auto; gap: 12px; } .masthead { justify-self: start; } .masthead img { width: min(250px, 60vw); } .header-action--subscribe { display: none; } .header-action--donate { font-size: .72rem; padding: .65rem 1rem; } }

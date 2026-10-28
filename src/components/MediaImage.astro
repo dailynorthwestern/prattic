@@ -1,0 +1,7 @@
+---
+import { Image } from 'astro:assets';
+import { asset } from '../lib/content.js';
+const { src, alt, width, height, eager = false, class: className, style, sizes } = Astro.props;
+const common = { alt, class: className, style, loading: eager ? 'eager' : 'lazy', decoding: 'async', fetchpriority: eager ? 'high' : 'auto' };
+---
+{typeof src === 'object' ? <Image src={src} widths={[480, 800, 1200, 1800, 2400]} sizes={sizes || '(max-width: 700px) 100vw, 80vw'} {...common} /> : <img src={asset(src)} width={width} height={height} {...common} />}

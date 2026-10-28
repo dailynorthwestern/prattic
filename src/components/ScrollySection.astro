@@ -1,0 +1,21 @@
+---
+import MediaImage from './MediaImage.astro';
+import { inline } from '../lib/content.js';
+const { block } = Astro.props;
+---
+<section class="scrolly" aria-label={block.title} data-scrolly>
+  <div class="scrolly-heading shell"><span class="eyebrow">A visual journey</span><h3>{block.title}</h3><span class="scrolly-hint">Keep scrolling ↓</span></div>
+  <div class="scrolly-layout shell">
+    <div class="scrolly-visual" aria-hidden="true">
+      {block.steps.map((step, i) => <figure class:list={['scrolly-frame', { 'is-active': i === 0 }]} data-frame={i}>
+        <MediaImage {...step.image} alt="" />
+        <figcaption>{step.image.caption}<span class="photo-credit">{step.image.credit}</span></figcaption>
+      </figure>)}
+      <div class="scrolly-dots" aria-hidden="true">{block.steps.map((_, i) => <span class:list={{ 'is-active': i === 0 }} data-dot={i}></span>)}</div>
+    </div>
+    <div class="scrolly-steps">{block.steps.map((step, i) => <div class="scrolly-step" data-step={i}>
+      <figure class="step-image"><MediaImage {...step.image} /><figcaption>{step.image.caption}<span class="photo-credit">{step.image.credit}</span></figcaption></figure>
+      <p class="eyebrow">{step.label || String(i + 1).padStart(2, '0')}</p><h4>{step.title}</h4><p set:html={inline(step.text)} />
+    </div>)}</div>
+  </div>
+</section>

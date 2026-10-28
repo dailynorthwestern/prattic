@@ -1,0 +1,19 @@
+---
+import ArticleImage from './ArticleImage.astro';
+import PullQuote from './PullQuote.astro';
+import ScrollySection from './ScrollySection.astro';
+import VideoEmbed from './VideoEmbed.astro';
+import { inline } from '../lib/content.js';
+const { blocks, sample } = Astro.props;
+---
+<div class="article-body" id="story-body">
+  {sample && <aside class="sample-note reading-column"><span class="sample-dot"></span><span><strong>A story starts here.</strong> This is a sample article. All copy and quotations are illustrative.</span></aside>}
+  {blocks.map(block => <>
+    {block.type === 'paragraph' && <p class:list={['reading-column', 'body-copy', { lead: block.lead }]} data-reveal={block.animate} set:html={inline(block.text)} />}
+    {block.type === 'heading' && <div class="section-heading reading-column" id={block.id} data-reveal={block.animate}>{block.label && <p class="eyebrow">{block.label}</p>}<h2 set:html={inline(block.text)} /></div>}
+    {block.type === 'image' && <ArticleImage block={block} />}
+    {block.type === 'quote' && <PullQuote block={block} />}
+    {block.type === 'scrolly' && <ScrollySection block={block} />}
+    {['video', 'embed'].includes(block.type) && <VideoEmbed block={block} />}
+  </>)}
+</div>

@@ -1,0 +1,9 @@
+---
+// Extracted from new-ryan-field/src/pages/index.astro; credits supplied by story.js.
+const { credits = [] } = Astro.props;
+---
+<footer class="site-footer">
+  <div class="shell footer-credits" aria-label="Project credits">
+    {credits.map(({ role, name }) => <p>{role} | {name}</p>)}
+  </div>
+</footer>

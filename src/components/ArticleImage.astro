@@ -1,0 +1,8 @@
+---
+import MediaImage from './MediaImage.astro';
+const { block } = Astro.props;
+---
+<figure class:list={['article-image', `article-image--${block.layout || 'inline'}`]} data-reveal={block.animate}>
+  <MediaImage {...block} />
+  <figcaption>{block.caption}{block.credit && <span class="photo-credit">{block.credit}</span>}</figcaption>
+</figure>

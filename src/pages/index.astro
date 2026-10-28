@@ -1,0 +1,19 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import ArticleBody from '../components/ArticleBody.astro';
+import { story } from '../data/story.js';
+import { validateStory } from '../lib/content.js';
+validateStory(story);
+---
+<Layout story={story}>
+  <Header />
+  <main id="main-content"><article><Hero story={story} /><ArticleBody blocks={story.blocks} sample={story.sample} />
+  </article></main>
+  <Footer credits={story.credits} />
+</Layout>
+<script>
+  import '../scripts/story.js';
+</script>

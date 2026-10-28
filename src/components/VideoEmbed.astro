@@ -1,0 +1,13 @@
+---
+import { asset, safeURL } from '../lib/content.js';
+const { block } = Astro.props;
+---
+<figure class="media-block reading-wide" data-reveal={block.animate}>
+  {block.type === 'video' && block.kind === 'native' ? <video controls playsinline preload="none" poster={block.poster ? asset(block.poster) : undefined} aria-label={block.title} width="1280" height="720">
+    <source src={asset(safeURL(block.src))} type="video/mp4" />
+    {block.captions && <track kind="captions" src={asset(block.captions)} srclang={block.language || 'en'} label="Captions" default />}
+    <a href={asset(safeURL(block.src))}>Open {block.title}</a>
+  </video> : <iframe src={safeURL(block.src)} title={block.title} loading="lazy" width="1280" height="720" sandbox="allow-scripts allow-same-origin allow-presentation" allow="fullscreen; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>}
+  <figcaption>{block.caption}<a href={asset(safeURL(block.link || block.src))}>Open {block.type === 'video' ? 'video' : 'interactive'} ↗</a></figcaption>
+  {block.transcript && <details><summary>Read video transcript</summary><p>{block.transcript}</p></details>}
+</figure>

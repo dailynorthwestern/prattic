@@ -1,2 +1,7 @@
-import { defineConfig } from 'astro/config';
-export default defineConfig({ output: 'static', base: process.env.BASE_PATH || '/' });
+import { defineConfig } from "astro/config";
+
+export default defineConfig({
+  output: "static",
+  site: "https://dailynorthwestern.github.io",
+  base: process.env.BASE_PATH || "/prattic/",
+});

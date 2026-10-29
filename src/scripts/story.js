@@ -35,17 +35,17 @@ if ('IntersectionObserver' in window) {
 }
 const storyBody = document.querySelector('#story-body');
 const entryOverlay = storyBody?.querySelector('[data-story-entry-overlay]');
-const secondParagraph = storyBody?.querySelectorAll(':scope > .body-copy')[1];
+const fifthParagraph = storyBody?.querySelectorAll(':scope > .body-copy')[4];
 function updateStoryEntry() {
-  if (!entryOverlay || !secondParagraph) return;
+  if (!entryOverlay || !fifthParagraph) return;
   if (reduced.matches) {
     entryOverlay.style.opacity = '0';
     return;
   }
   const storyTop = storyBody.getBoundingClientRect().top;
-  const secondTop = secondParagraph.getBoundingClientRect().top;
-  entryOverlay.style.height = `${Math.max(0, secondTop - storyTop)}px`;
-  entryOverlay.style.opacity = String(storyTransitionOpacity(storyTop, secondTop, innerHeight));
+  const fifthTop = fifthParagraph.getBoundingClientRect().top;
+  entryOverlay.style.height = `${Math.max(0, fifthTop - storyTop)}px`;
+  entryOverlay.style.opacity = String(storyTransitionOpacity(storyTop, fifthTop, innerHeight));
 }
 reduced.addEventListener('change', updateStoryEntry);
 // Recalculate when fonts or responsive content change the opening paragraphs' height.

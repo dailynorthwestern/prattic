@@ -1,5 +1,4 @@
 ---
-import MediaImage from './MediaImage.astro';
 import { asset, safeURL } from '../lib/content.js';
 const { story } = Astro.props;
 const { hero } = story;
@@ -14,13 +13,10 @@ const { hero } = story;
       <span class="meta-dot">·</span>
       <time datetime={story.date}>{new Date(`${story.date}T12:00:00Z`).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' })}</time>
     </p>
-    {hero.credit && <p class="hero-credit">{hero.credit}</p>}
     {story.contentWarning && <p class="hero-warning">Content warning: {story.contentWarning}</p>}
   </div>
-  <div class="hero-visual">
-    <MediaImage {...hero} eager class="hero-media" sizes="(max-width: 700px) 100vw, max(50vw, 150vh)" style={`object-position:${hero.position || 'center'}`} />
-    {hero.video && <video class="hero-media hero-video" muted loop playsinline preload="none" data-hero-video style={`object-position:${hero.position || 'center'}`}><source src={asset(hero.video)} type="video/mp4" /></video>}
-    {hero.video && <button class="video-toggle" type="button" hidden aria-pressed="false">Play background video</button>}
+  <div class="hero-visual" aria-hidden="true">
+    <video class="hero-media" autoplay loop muted playsinline preload="auto" data-hero-video tabindex="-1"><source src={asset(hero.video)} type="video/mp4" /></video>
   </div>
   <a href="#story-body" class="scroll-cue" aria-label="Scroll to article"><span aria-hidden="true">↓</span></a>
 </section>

@@ -21,7 +21,7 @@ Open the local URL printed by Astro, usually http://localhost:4321. `npm test` c
 4. Replace the objects in `blocks` with your story, in reading order.
 5. Set `sample: false` to remove the sample notice.
 
-The current article body contains the supplied Prattic draft: 38 paragraphs and three headings, in their original order, with fact-check annotations and image-placement notes removed. Quotes render as ordinary paragraphs. No images, embeds, pull quotes, scroll sections or animations are enabled in this article. The reusable components below remain available for future stories. The hero metadata and illustrative stock photograph are retained from the existing design; update those fields with final publication details when available.
+The current article body contains the supplied Prattic draft: 38 paragraphs and three headings, in their original order, with fact-check annotations and image-placement notes removed. Quotes render as ordinary paragraphs. No images, embeds, pull quotes, scroll sections or animations are enabled in this article. The reusable components below remain available for future stories. The hero uses the supplied `public/assets/PRATTIC V2.mp4` video.
 
 Authors accept `{ name: 'Reporter Name', url: 'https://…' }`; `url` is optional. Project credits accept `{ role: 'Photography', name: 'Name' }`. Keep commas between array entries. Use backticks for text with apostrophes or multiple lines.
 
@@ -50,9 +50,9 @@ The simplest path: put images in `public/assets/` and reference `/assets/photo.j
 },
 ```
 
-For automatic responsive WebP optimization, put your photo in `src/assets/`, add `import photo from '../assets/photo.jpg';` at the top of `story.js`, and use `src: photo`. The included samples demonstrate this path. `MediaImage.astro` generates responsive sizes at build time. Both paths work for the hero, body and scrolly images. Hero media loads eagerly; article images load lazily.
+For automatic responsive WebP optimization, put your photo in `src/assets/`, add `import photo from '../assets/photo.jpg';` at the top of `story.js`, and use `src: photo`. The included samples demonstrate this path. `MediaImage.astro` generates responsive sizes at build time. Both paths work for body and scrolly images. Article images load lazily.
 
-Set `hero: { src, alt, width, height, credit, showDek: false, position: 'center 55%' }`. The hero is split equally between a solid `#501e4c` text panel and an uncovered image on desktop, and stacks on mobile. Change `position` to move the image’s focal point without distorting it. Credits appear beneath the byline; an optional `role` on each author appears after their name. Optionally add `video: '/assets/hero.mp4'` inside `hero`. The image stays as the poster/background; a play/pause button is provided. Reduced-motion readers see the static image until they explicitly play the video.
+Set `hero: { video: '/assets/PRATTIC%20V2.mp4', showDek: false }`. The full-viewport video plays automatically, muted and inline, and loops without controls. Text is centered near the bottom over a dark gradient. Reduced-motion readers see a static dark background and playback pauses. Asset URLs include Astro’s configured base path in production.
 
 ### Pull quotes
 
@@ -126,7 +126,7 @@ Any paragraph, heading, image, quote or media block can have `animate: 'fade'` o
 
 The header, original SVG wordmark, favicon, purple palette, Adobe Typekit stylesheet and font families are adapted from [new-ryan-field](https://github.com/dailynorthwestern/new-ryan-field), source commit `b1de477874bb8e3494aea675179321829e476c40`. Header behavior retains Subscribe/Donate actions, a back-to-top masthead and the fixed mobile layout (Subscribe hidden on small screens). The original inline project-credits footer from `src/pages/index.astro` is extracted into `Footer.astro`; credits now come from the story data. Sports-specific layouts and fonts were not copied. Source assets remain the property of their respective owners. Confirm newsroom asset/font permissions for your deployment; the font stack has Georgia/Arial fallbacks if the original Typekit kit does not serve your domain.
 
-[Out of Bounds](https://apps.dailynorthwestern.com/outofbounds/) informed the reading pace and visual storytelling, with an original layout here. Sample images are from Unsplash image IDs `photo-1473116763249-2faaef81ccda` and `photo-1507525428034-b723cf961d3e`; original files are stored locally in `src/assets/`.
+[Out of Bounds](https://apps.dailynorthwestern.com/outofbounds/) informed the reading pace and visual storytelling, with an original layout here.
 
 ## Build and deploy
 

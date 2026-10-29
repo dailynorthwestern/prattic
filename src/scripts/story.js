@@ -1,3 +1,5 @@
+import { storyTransitionOpacity } from '../lib/story-transition.js';
+
 const reduced = matchMedia('(prefers-reduced-motion: reduce)');
 // Content remains readable without JavaScript and if observers are unavailable.
 const elements = [...document.querySelectorAll('[data-reveal]')];
@@ -31,23 +33,49 @@ if ('IntersectionObserver' in window) {
     steps.forEach(step => observer.observe(step));
   });
 }
+const storyBody = document.querySelector('#story-body');
+const entryOverlay = storyBody?.querySelector('[data-story-entry-overlay]');
+const secondParagraph = storyBody?.querySelectorAll(':scope > .body-copy')[1];
+function updateStoryEntry() {
+  if (!entryOverlay || !secondParagraph) return;
+  if (reduced.matches) {
+    entryOverlay.style.opacity = '0';
+    return;
+  }
+  const storyTop = storyBody.getBoundingClientRect().top;
+  const secondTop = secondParagraph.getBoundingClientRect().top;
+  entryOverlay.style.height = `${Math.max(0, secondTop - storyTop)}px`;
+  entryOverlay.style.opacity = String(storyTransitionOpacity(storyTop, secondTop, innerHeight));
+}
+reduced.addEventListener('change', updateStoryEntry);
+// Recalculate when fonts or responsive content change the opening paragraphs' height.
+if (storyBody && 'ResizeObserver' in window) {
+  new ResizeObserver(() => scheduleProgress()).observe(storyBody);
+}
+document.fonts?.ready.then(() => scheduleProgress());
+addEventListener('pageshow', () => scheduleProgress());
 const progress = document.querySelector('.reading-progress');
 let scheduled = false;
 function updateProgress() {
   const height = document.documentElement.scrollHeight - innerHeight;
   progress?.style.setProperty('--progress', String(height > 0 ? Math.min(1, Math.max(0, scrollY / height)) : 0));
+  updateStoryEntry();
   scheduled = false;
 }
-addEventListener('scroll', () => { if (!scheduled) { scheduled = true; requestAnimationFrame(updateProgress); } }, { passive: true });
-addEventListener('resize', updateProgress);
+function scheduleProgress() {
+  if (!scheduled) { scheduled = true; requestAnimationFrame(updateProgress); }
+}
+addEventListener('scroll', scheduleProgress, { passive: true });
+addEventListener('resize', scheduleProgress);
 updateProgress();
 const video = document.querySelector('[data-hero-video]');
-const toggle = document.querySelector('.video-toggle');
-if (video && toggle) {
-  toggle.hidden = false;
-  const sync = () => { toggle.textContent = video.paused ? 'Play background video' : 'Pause background video'; toggle.setAttribute('aria-pressed', String(!video.paused)); };
-  toggle.addEventListener('click', async () => { if (video.paused) { try { await video.play(); } catch { /* Poster remains available. */ } } else video.pause(); sync(); });
-  video.addEventListener('play', sync); video.addEventListener('pause', sync);
-  reduced.addEventListener('change', () => { if (reduced.matches) video.pause(); });
-  if (!reduced.matches) video.play().catch(sync);
+if (video) {
+  const syncHeroMotion = () => {
+    video.muted = true;
+    video.autoplay = !reduced.matches;
+    if (reduced.matches) video.pause();
+    else video.play().catch(() => { /* The dark background preserves text readability if autoplay is unavailable. */ });
+  };
+  reduced.addEventListener('change', syncHeroMotion);
+  syncHeroMotion();
 }

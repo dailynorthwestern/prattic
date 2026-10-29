@@ -8,6 +8,7 @@ import { inline } from '../lib/content.js';
 const { blocks, sample } = Astro.props;
 ---
 <div class="article-body" id="story-body">
+  <div class="story-entry-overlay" data-story-entry-overlay aria-hidden="true"></div>
   {sample && <aside class="sample-note reading-column"><span class="sample-dot"></span><span><strong>A story starts here.</strong> This is a sample article. All copy and quotations are illustrative.</span></aside>}
   {blocks.map((block, index) => <>
     {block.type === 'paragraph' && <p class:list={['reading-column', 'body-copy', { lead: block.lead }]} data-reveal={block.animate} set:html={inline(block.text)} />}

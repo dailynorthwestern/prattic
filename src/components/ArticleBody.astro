@@ -1,19 +1,31 @@
 ---
 import ArticleImage from './ArticleImage.astro';
+import DecorativeIllustration from './DecorativeIllustration.astro';
 import AudioStoryCard from './AudioStoryCard.astro';
 import PullQuote from './PullQuote.astro';
 import ScrollySection from './ScrollySection.astro';
 import VideoEmbed from './VideoEmbed.astro';
 import { inline } from '../lib/content.js';
-const { blocks, sample } = Astro.props;
+const { blocks, sample, illustrations = [] } = Astro.props;
+// Isolate the opening's floats from later media while keeping text in their flow.
+const firstOtherBlock = blocks.findIndex(block => block.type !== 'paragraph');
+const openingCount = illustrations.length ? (firstOtherBlock < 0 ? blocks.length : firstOtherBlock) : 0;
+const opening = blocks.slice(0, openingCount);
 ---
 <div class="article-body" id="story-body">
   <div class="story-entry-overlay" data-story-entry-overlay aria-hidden="true"></div>
   {sample && <aside class="sample-note reading-column"><span class="sample-dot"></span><span><strong>A story starts here.</strong> This is a sample article. All copy and quotations are illustrative.</span></aside>}
-  {blocks.map((block, index) => <>
+  {opening.length > 0 && <div class="illustrated-opening" data-illustrated-opening>
+    {illustrations.map(illustration => <DecorativeIllustration {...illustration} />)}
+    {opening.map(block => <>
+      {block.illustration && <DecorativeIllustration {...block.illustration} anchored />}
+      <p class:list={['body-copy', { lead: block.lead }]} data-reveal={block.animate} set:html={inline(block.text)} />
+    </>)}
+  </div>}
+  {blocks.slice(openingCount).map((block, index) => <>
     {block.type === 'paragraph' && <p class:list={['reading-column', 'body-copy', { lead: block.lead }]} data-reveal={block.animate} set:html={inline(block.text)} />}
     {block.type === 'heading' && <div class="section-heading reading-column" id={block.id} data-reveal={block.animate}>{block.label && <p class="eyebrow">{block.label}</p>}<h2 set:html={inline(block.text)} /></div>}
-    {block.type === 'audioCard' && <AudioStoryCard block={block} id={`audio-card-${index}`} />}
+    {block.type === 'audioCard' && <AudioStoryCard block={block} id={`audio-card-${index + openingCount}`} />}
     {block.type === 'image' && <ArticleImage block={block} />}
     {block.type === 'quote' && <PullQuote block={block} />}
     {block.type === 'scrolly' && <ScrollySection block={block} />}

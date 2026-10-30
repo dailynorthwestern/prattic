@@ -1,0 +1,47 @@
+---
+import { getImage } from 'astro:assets';
+const { image, side = 'left', anchored = false } = Astro.props;
+// Use the same transparent bitmap for rendering and CSS alpha wrapping.
+const illustration = await getImage({ src: image, width: 1000, format: 'png' });
+---
+<img class:list={['decorative-illustration', `decorative-illustration--${side === 'right' ? 'right' : 'left'}`, { 'decorative-illustration--anchored': anchored }]}
+  style={`--illustration-shape: url("${illustration.src}")`}
+  src={illustration.src} width={illustration.attributes.width} height={illustration.attributes.height}
+  alt="" aria-hidden="true" decoding="async" />
+
+<style>
+  /* All decorative illustrations reserve space for text; never position over copy. */
+  .decorative-illustration {
+    display: block;
+    float: left;
+    height: auto;
+    width: min(30vw, 500px);
+    /* Keep the mask and rendered bitmap aligned. Alpha excludes transparent padding. */
+    margin: 0;
+    margin-top: -30px;
+    margin-left: 50px;
+    shape-outside: var(--illustration-shape);
+    shape-image-threshold: 0;
+    shape-margin: 20px;
+  }
+  .decorative-illustration--right {
+    float: right;
+    margin-top: -30px;
+    margin-right: 70px;
+  }
+
+  /* Paragraph illustrations start in normal flow at their associated paragraph. */
+  .decorative-illustration--anchored {
+    width: min(20vw, 350px);
+    margin-top: -20px;
+    margin-right: 300px;
+
+  }
+
+  @media (max-width: 1000px) {
+    .decorative-illustration { width: 28vw; }
+  }
+  @media (max-width: 700px) {
+    .decorative-illustration { display: none; }
+  }
+</style>

@@ -11,7 +11,7 @@
 }
 .hero-content { z-index: 1; align-self: end; width: min(100%, 1040px); min-width: 0; margin-inline: auto; padding: 48px 32px calc(80px + env(safe-area-inset-bottom)); text-align: center; overflow-wrap: break-word; }
 .hero-publication { display: block; width: min(100%, 300px); height: auto; margin: 0 auto 24px; }
-.hero h1 { margin: 0 0 18px; font: 600 clamp(32px, 4.2vw, 58px)/1.15 var(--font-editorial); letter-spacing: normal; }
+.hero h1 { margin: 0 0 18px; font: 600 clamp(32px, 3vw, 58px)/1.15 var(--font-editorial); letter-spacing: normal; }
 .hero-dek { margin: 0 0 20px; font: 400 18px/1.4 var(--font-editorial); }
 .hero-byline { margin: 0; color: #fff; font-size: 16px; line-height: 1.5; }
 .hero-byline a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
@@ -123,7 +123,7 @@ figcaption { font: 400 .75rem/1.6 var(--font-editorial); color: var(--muted); pa
 @media(prefers-reduced-motion: reduce) { .hero-media { visibility: hidden; } }
 
 // Confine the darkness to the story opening; no layout space or input interception.
-.article-body { position: relative; isolation: isolate; }
+.article-body { position: relative; isolation: isolate; display: flow-root; }
 .story-entry-overlay {
   position: absolute;
   inset: 0 0 auto;
@@ -134,3 +134,16 @@ figcaption { font: 400 .75rem/1.6 var(--font-editorial); color: var(--muted); pa
   pointer-events: none;
 }
 @media(prefers-reduced-motion: reduce) { .story-entry-overlay { display: none; } }
+
+// Paragraph boxes span the floats' formatting context. Padding establishes the
+// usual 680px reading measure without independently centering each paragraph box.
+.illustrated-opening {
+  display: flow-root;
+  width: min(100%, 1440px);
+  margin-inline: auto;
+}
+.illustrated-opening > .body-copy {
+  width: auto;
+  margin-inline: 0;
+  padding-inline: max(20px, calc((100% - 680px) / 2));
+}

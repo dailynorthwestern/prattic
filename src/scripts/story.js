@@ -35,7 +35,7 @@ if ('IntersectionObserver' in window) {
 }
 const storyBody = document.querySelector('#story-body');
 const entryOverlay = storyBody?.querySelector('[data-story-entry-overlay]');
-const fifthParagraph = storyBody?.querySelectorAll(':scope > .body-copy')[4];
+const fifthParagraph = storyBody?.querySelectorAll(':scope > .body-copy, :scope > [data-illustrated-opening] > .body-copy')[4];
 function updateStoryEntry() {
   if (!entryOverlay || !fifthParagraph) return;
   if (reduced.matches) {

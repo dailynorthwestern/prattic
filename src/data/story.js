@@ -6,6 +6,11 @@ import natalieMay from "../assets/Natalie_May.jpg";
 import haikal from "../assets/Haikal_Rozaidi.jpg";
 import andrew from "../assets/Andrew_Mikhail.jpg";
 import spencer from "../assets/Spencer_Thomas.jpg";
+import kat from "../assets/kat.jpg";
+import beercans from "../assets/beercans.PNG";
+import beercans_left from "../assets/beercans_left.PNG";
+import toilet from "../assets/toilet.PNG";
+
 export const story = {
   title:
     "“It was lightning in a bottle”: NU comics look back on the now-defunct Prattic comedy club",
@@ -31,6 +36,10 @@ export const story = {
     { role: "Photography", name: "First Last" },
     { role: "Design & development", name: "The Daily Northwestern" },
   ],
+  illustrations: [
+    { image: beercans_left, side: "left" },
+    { image: beercans, side: "right" },
+  ],
   blocks: [
     {
       type: "paragraph",
@@ -46,6 +55,7 @@ export const story = {
     },
     {
       type: "paragraph",
+      illustration: { image: toilet, side: "right" },
       text: "Using tips he had saved up from his time delivering pizzas at Domino’s, Heller purchased $200 worth of lawn chairs from a wholesaler. The housemates transformed their bare-bones, wood-paneled attic into a venue where comedians of all experience levels could perform every Monday night. The dark, low-ceilinged space, with beer cans nailed to the wall and a broken toilet serving as a centerpiece, was as weird as it was comforting.",
     },
     {
@@ -140,7 +150,7 @@ export const story = {
       image: spencer,
       imageAlt: "Spencer in front of the Prattic house",
       description: `Spencer Thomas (Communication ‘26) had no formal standup experience before The Prattic, but he knew he liked talking to people and telling jokes. After performing his first comedy routine there, he kept going back.
-
+      
       “(The Prattic) is a place where you're supposed to experiment,” he said.`,
       audioSrc: "/assets/Spencer Thomas Embed_mixdown.mp3",
       speaker: "Spencer",
@@ -187,8 +197,30 @@ export const story = {
       text: "The Prattic was the second comedy event of Abughazaleh’s campaign. She also performed stand-up at Chicago’s Laugh Factory in June 2025. She joked that the two venues were similar in their lack of air conditioning, but “the kids were having more fun” at The Prattic.",
     },
     {
+      type: "audioCard",
+      id: "kat-abughazaleh-audio",
+      image: kat,
+      imageAlt: "Kat speaking at the Prattic",
+      description: `Abughazaleh said politicians shouldn’t discount college students and young creatives in their campaign efforts. 
+
+      “‘Real America' is a college attic with a lot of ‘Young Sheldon’ merch on the walls,” she said.`,
+      audioSrc: "/assets/KatAbu_Embed_mixdown_.mp3",
+      speaker: "Kat",
+      audioLabel: "Listen to Kat",
+      transcript: `I valued having college students a lot on my campaign, especially because a lot of people were like, "That's stupid to value young people,” and I'm like, "Well, I'm a young person.”
+
+      I didn't know what The Prattic was. But it sounded like fun, and we really liked non-traditional stuff in the campaign, and so we did it. And it was such a creative space. It had a lot of heart, and I'm glad that I did it.
+
+      Comedy has always been a part of how I communicate. Things are really bad right now, and people will start tuning out if we don't find other ways to communicate. 
+
+      We always talk about “real America”, and it's pretty much exclusively used to refer to, like, farmers in Iowa and conservatives in Ohio, and I think real America is all of America, and I think that includes college students’ attics. I think real America is where people are having fun and appreciating each other and working on art. I think Real America is where you try to communicate and actually understand people's perspectives — and part of why we're in this situation is we didn't listen to young people. 
+
+      So I'm glad that I got to spend time with “real America”, and “real America” is a college attic with a lot of young Sheldon merch on the walls and college students having a good time.`, // Replace with the clip’s verbatim transcript.
+    },
+
+    {
       type: "paragraph",
-      text: "Co-founder Garcia-Bryce coordinated the event after student campaign workers on Abughazaleh’s team reached out to see if The Prattic was interested in hosting the politician.",
+      text: "Venue co-founder Garcia-Bryce coordinated the event after student campaign workers on Abughazaleh’s team reached out to see if The Prattic was interested in hosting the politician.",
     },
     {
       type: "paragraph",

@@ -32,9 +32,10 @@ export const story = {
     showDek: false,
   },
   credits: [
-    { role: "Reporting", name: "First Last" },
-    { role: "Photography", name: "First Last" },
-    { role: "Design & development", name: "The Daily Northwestern" },
+    { role: "Editor in Chief", name: "Anavi Prakash" },
+    { role: "Web Developer", name: "Eunice Lee" },
+    { role: "Assistant Web Developer", name: "Nicole Cheah" },
+    { role: "Multimedia Features Editor", name: "Jack Greenspan" },
   ],
   illustrations: [
     { image: beercans_left, side: "left" },

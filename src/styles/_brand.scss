@@ -44,13 +44,14 @@
 }
 .header-action--donate { justify-self: end; }
 .site-footer {
-  background: var(--purple-dark);
+  background: var(--text-primary);
   color: white;
   padding: 1.75rem 0;
 }
 .footer-credits {
-  color: white;
+  color: var(--daily-purple);
   font-size: 0.9rem;
+  font-weight: 500;
   line-height: 1.6;
   text-align: center;
 }

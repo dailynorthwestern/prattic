@@ -41,7 +41,7 @@
 }
 .reading-column { width: min(680px, calc(100% - 40px)); margin-inline: auto; }
 .reading-wide { width: min(1000px, calc(100% - 40px)); margin-inline: auto; }
-.article-body { padding-top: 28px; background: var(--background-primary); color: var(--text-primary); font: 400 20px/1.4 var(--font-editorial); }
+.article-body { padding-top: 28px; padding-bottom: 100px; background: var(--background-primary); color: var(--text-primary); font: 400 20px/1.4 var(--font-editorial); }
 .article-body a { color: var(--daily-purple); text-decoration: underline; text-underline-offset: 2px; }
 .sample-note { margin-bottom: 24px; color: #555; font: italic 400 14px/1.4 var(--font-editorial); }
 .sample-note strong { font-weight: 400; }

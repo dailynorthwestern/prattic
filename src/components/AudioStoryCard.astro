@@ -8,11 +8,14 @@ const playLabel = block.audioLabel;
 const pauseLabel = block.speaker ? `Pause ${block.speaker}` : `Pause audio`;
 ---
 <aside class="audio-story-card reading-column" id={cardId} aria-label={`Audio story: ${block.speaker || playLabel}`} data-audio-card>
+  <figure class="audio-card-photo">
   {typeof block.image === 'string' ? (
     <img src={asset(block.image)} alt={block.imageAlt} width={block.imageWidth} height={block.imageHeight} loading="lazy" decoding="async" />
   ) : (
     <Image src={block.image} alt={block.imageAlt} widths={[400, 680, 1360]} sizes="(max-width: 720px) calc(100vw - 40px), 680px" loading="lazy" decoding="async" />
   )}
+    {block.imageCredit && <figcaption class="audio-card-photo-credit">{block.imageCredit}</figcaption>}
+  </figure>
   <div class="audio-card-content">
     <p class="audio-card-description" set:html={inline(block.description)} />
     <audio src={audioSrc} controls preload="metadata" aria-label={playLabel} hidden={!audioSrc} data-card-audio></audio>
@@ -54,6 +57,14 @@ const pauseLabel = block.speaker ? `Pause ${block.speaker}` : `Pause audio`;
   p { margin: 0; }
 }
 .audio-card-content { padding: 22px; }
+.audio-card-photo { margin: 0; }
+.audio-card-photo-credit {
+  padding: 6px 12px 0;
+  color: #555;
+  font: 400 12px/1.4 var(--font-editorial);
+  text-align: right;
+  overflow-wrap: anywhere;
+}
 .audio-card-description { margin-bottom: 16px !important; overflow-wrap: anywhere; white-space: pre-line;}
 .audio-card-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; color: #501e4c; font-size: 17px; }
 .audio-card-play {

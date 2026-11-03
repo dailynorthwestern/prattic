@@ -27,7 +27,7 @@ export const story = {
       url: "https://dailynorthwestern.com/staff_name/nicole-cheah/",
     },
   ],
-  date: "2026-10-27",
+  date: "2026-11-02",
   readTime: "6 minute read",
   // Optional warning; leave empty to omit it.
   contentWarning: "",
@@ -72,7 +72,7 @@ export const story = {
     },
     {
       type: "paragraph",
-      text: "To much of the NU community, however, the house’s vacancy symbolized something more than a new listing in Evanston’s rental market: it meant the end of NU’s only weekly off-campus comedy show.",
+      text: "To much of the NU community, however, the house’s vacancy symbolized something more than a new listing in Evanston’s rental market: It meant the end of NU’s only weekly off-campus comedy show.",
     },
     {
       type: "paragraph",
@@ -114,6 +114,7 @@ export const story = {
     },
     {
       type: "audioCard",
+      imageCredit: "Jack Greenspan/The Daily Northwestern",
       id: "natalie-may-audio",
       image: natalieMay,
       imageAlt:
@@ -140,6 +141,7 @@ export const story = {
     },
     {
       type: "audioCard",
+      imageCredit: "Jack Greenspan/The Daily Northwestern",
       id: "haikal-rozaidi-audio",
       image: haikal,
       imageAlt:
@@ -171,10 +173,11 @@ export const story = {
     },
     {
       type: "audioCard",
+      imageCredit: "Jack Greenspan/The Daily Northwestern",
       id: "spencer-thomas-audio",
       image: spencer,
       imageAlt: "Spencer in front of the Prattic house",
-      description: `Spencer Thomas (Communication ‘26) had no formal standup experience before The Prattic, but he knew he liked talking to people and telling jokes. After performing his first comedy routine there, he kept going back.
+      description: `Spencer Thomas (Communication ’26) had no formal standup experience before The Prattic, but he knew he liked talking to people and telling jokes. After performing his first comedy routine there, he kept going back.
       
       “(The Prattic) is a place where you're supposed to experiment,” he said.`,
       audioSrc: "/assets/Spencer Thomas Embed_mixdown.mp3",
@@ -223,12 +226,13 @@ export const story = {
     },
     {
       type: "audioCard",
+      imageCredit: "Jack Greenspan/The Daily Northwestern",
       id: "kat-abughazaleh-audio",
       image: kat,
       imageAlt: "Kat speaking at the Prattic",
       description: `Abughazaleh said politicians shouldn’t discount college students and young creatives in their campaign efforts. 
 
-      “‘Real America' is a college attic with a lot of ‘Young Sheldon’ merch on the walls,” she said.`,
+      “‘Real America’ is a college attic with a lot of ‘Young Sheldon’ merch on the walls,” she said.`,
       audioSrc: "/assets/KatAbu_Embed_mixdown_.mp3",
       speaker: "Kat",
       audioLabel: "Listen to Kat",
@@ -290,6 +294,7 @@ export const story = {
     },
     {
       type: "audioCard",
+      imageCredit: "Jack Greenspan/The Daily Northwestern",
       id: "andrew-mikhail-audio",
       image: andrew,
       imageAlt: "Andrew sitting on the steps of the Prattic house",
@@ -328,7 +333,7 @@ Looking back, Mikhail called The Prattic a “cultural moment” for the NU comm
     },
     {
       type: "paragraph",
-      text: "In recent months, Rozaidi has also taken it upon himself to organize comedy events within Evanston. In September, he and Chicago comedian Nolan Raymond hosted the first “Laughs at Local Note”, a stand-up comedy show occurring monthly at the [Local Note Jazz Club](https://dailynorthwestern.com/2026/10/30/city/local-note/). Prattic regulars, including May and Mikhail, performed in the program’s inaugural show.",
+      text: "In recent months, Rozaidi has also taken it upon himself to organize comedy events within Evanston. In September, he and Chicago comedian Nolan Raymond hosted the first “Laughs at Local Note,” a stand-up comedy show occurring monthly at the [Local Note Jazz Club](https://dailynorthwestern.com/2026/10/30/city/local-note/). Prattic regulars, including May and Mikhail, performed in the program’s inaugural show.",
     },
     {
       type: "paragraph",
@@ -340,7 +345,7 @@ Looking back, Mikhail called The Prattic a “cultural moment” for the NU comm
     },
     {
       type: "paragraph",
-      text: "Prof. Vakil is collaborating with Norris to bring monthly comedy showcases to Luna’s Pub featuring NU and Chicago comedians. [The first “NU x Chicago Comedy Night”](https://dailynorthwestern.com/2026/10/23/lateststories/laughter-fills-lunas-pub-for-first-nu-x-chicago-comedy-night-event/) was headlined by Apple TV-featured comedian Kristen Toomey and featured Rozaidi as a student performer.",
+      text: "Vakil is collaborating with Norris University Center to bring monthly comedy showcases to Luna’s Pub featuring NU and Chicago comedians. [The first “NU x Chicago Comedy Night”](https://dailynorthwestern.com/2026/10/23/lateststories/laughter-fills-lunas-pub-for-first-nu-x-chicago-comedy-night-event/) was headlined by Apple TV-featured comedian Kristen Toomey and featured Rozaidi as a student performer.",
     },
     {
       type: "paragraph",

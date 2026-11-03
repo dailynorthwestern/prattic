@@ -91,7 +91,17 @@ if (video) {
   document.addEventListener('visibilitychange', () => {
     if (!document.hidden) syncHeroMotion();
   });
-  // A first interaction can unlock playback when the browser blocks autoplay.
-  document.addEventListener('touchstart', syncHeroMotion, { once: true, passive: true });
+  // iPhone requires play() directly in a tap-completion handler when autoplay
+  // is blocked. Keep retries available if an earlier tap happened during loading.
+  const playHeroOnTap = () => {
+    if (!video.paused) return;
+    video.defaultMuted = true;
+    video.muted = true;
+    video.playsInline = true;
+    video.play().catch(() => { /* Keep the poster and allow another tap to retry. */ });
+  };
+  const hero = video.closest('.hero');
+  hero?.addEventListener('touchend', playHeroOnTap, { passive: true });
+  hero?.addEventListener('click', playHeroOnTap);
   syncHeroMotion();
 }

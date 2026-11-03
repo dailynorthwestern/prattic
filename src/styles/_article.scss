@@ -465,6 +465,13 @@ figcaption {
   .hero-media {
     visibility: hidden;
   }
+  // An explicit tap can start playback even when automatic motion is reduced.
+  .hero-visual.is-playing video.hero-media {
+    visibility: visible;
+  }
+  .hero-poster {
+    visibility: visible;
+  }
 }
 
 // Confine the darkness to the story opening; no layout space or input interception.

@@ -14,7 +14,7 @@ import chair from "../assets/chair.png";
 
 export const story = {
   title:
-    "“It was lightning in a bottle”: NU comics look back on the now-defunct Prattic comedy club",
+    "‘It was lightning in a bottle’: NU comics look back on now-defunct Prattic comedy club",
   kicker: "In Focus",
   dek: "Along the edge of Lake Michigan, a changing shoreline tells a story of place, community and the ties that hold us together.",
   authors: [
@@ -37,7 +37,8 @@ export const story = {
   // article URL. Until then, these links stay at the Related Stories heading.
   relatedStories: [
     {
-      title: "Laughter fills Luna’s Pub for first NU x Chicago Comedy Night event",
+      title:
+        "Laughter fills Luna’s Pub for first NU x Chicago Comedy Night event",
       url: "https://dailynorthwestern.com/2026/10/23/lateststories/laughter-fills-lunas-pub-for-first-nu-x-chicago-comedy-night-event/", // TODO: Add this story's URL.
     },
     {
@@ -45,7 +46,8 @@ export const story = {
       url: "https://dailynorthwestern.com/2026/02/26/ae/nu-senior-jackson-heller-the-man-in-the-prattic/", // TODO: Add this story's URL.
     },
     {
-      title: "Abughazaleh courts student voters at Prattic, pokes fun at critics",
+      title:
+        "Abughazaleh courts student voters at Prattic, pokes fun at critics",
       url: "https://dailynorthwestern.com/2026/03/09/top-stories/abughazaleh-courts-student-voters-at-the-prattic-pokes-fun-at-critics/", // TODO: Add this story's URL.
     },
   ],
@@ -66,15 +68,15 @@ export const story = {
   blocks: [
     {
       type: "paragraph",
-      text: "There was no dramatic goodbye when Jackson Heller (Communications ‘26) moved out of the house he and five of his best friends had been renting since their third year at Northwestern. The lease was up. He had made it to graduation and was already planning his post-college life. There was simply no time to get sentimental, he said.",
+      text: "There was no dramatic goodbye when Jackson Heller (Communication ’26) moved out of the house he and five of his best friends had been renting since their third year at Northwestern. The lease was up. He had made it to graduation and was already planning his post-college life. There was simply no time to get sentimental, he said.",
     },
     {
       type: "paragraph",
-      text: "To the rest of the NU community, however, the house’s vacancy symbolized something else: the end of NU’s only weekly off-campus comedy show.",
+      text: "To much of the NU community, however, the house’s vacancy symbolized something more than a new listing in Evanston’s rental market: it meant the end of NU’s only weekly off-campus comedy show.",
     },
     {
       type: "paragraph",
-      text: "Dubbed “The Prattic”, the unassuming house sat on Pratt Court, halfway between Foster and Simpson Streets. Heller and his roommates, Mateo Garcia-Bryce (Weinberg ‘26), Luca Hirsch (Communications ‘26), Livia Salituro (Weinberg ‘26), Saifeddine Lahmar (Communications ‘26) and Ainslie Wilson (Communications ‘26), put on their first comedy show in the attic in February 2025.",
+      text: "Dubbed “The Prattic,” the unassuming house sat on Pratt Court, halfway between Foster and Simpson Streets. Heller and his roommates, Mateo Garcia-Bryce (Weinberg ’26), Luca Hirsch (Communication ’26), Livia Salituro (Weinberg ’26), Saifeddine Lahmar (Communication ’26) and Ainslie Wilson (Communication ’26), put on their first comedy show in the attic in February 2025.",
     },
     {
       type: "paragraph",
@@ -83,7 +85,7 @@ export const story = {
     },
     {
       type: "paragraph",
-      text: "Before long, students were lining up in the backyard every Monday night, hoping to squeeze their way into the attic. This weekly tradition continued for nearly two school years.",
+      text: "Before long, students were lining up in the backyard every Monday night, hoping to squeeze their way into the attic. This weekly tradition continued for nearly two academic years.",
     },
     {
       type: "paragraph",
@@ -134,7 +136,7 @@ export const story = {
     },
     {
       type: "paragraph",
-      text: "Haikal Rozaidi, a second-year computer science graduate student, came to NU last year to pursue his master's after graduating from The Ohio State University. At Ohio State, he was involved in the Buckeye Standup Comedy Club, and he said he initially struggled to find something similar at NU. The first time he walked into The Prattic, Rozaidi said he had found “the coolest thing on campus.”",
+      text: "Haikal Rozaidi, a second-year computer science graduate student, came to NU last year to pursue his master’s after graduating from The Ohio State University. At Ohio State, he was involved in the Buckeye Standup Comedy Club, and he said he initially struggled to find something similar at NU. Rozaidi said the first time he walked into The Prattic, he knew he had found “the coolest thing on campus.”",
     },
     {
       type: "audioCard",
@@ -161,7 +163,7 @@ export const story = {
 
     {
       type: "paragraph",
-      text: "Since coming to Evanston, Rozaidi has performed at iconic Chicago venues like Zanies, Laugh Factory and The Lincoln Lodge. Rozaidi said that “whispers” of The Prattic — its reputation for having a “hot show” every Monday — have spread beyond the Evanston bubble into the Chicago comedy scene, and the venue has garnered envy among some Chicago comics.",
+      text: "Since coming to Evanston, Rozaidi has performed at iconic Chicago venues like Zanies Comedy Club, Laugh Factory and The Lincoln Lodge. Rozaidi said that “whispers” of The Prattic — namely, its reputation for having a “hot show” every Monday — have spread beyond the Evanston bubble into the Chicago comedy scene, and the venue has garnered envy among some Chicago comics.",
     },
     {
       type: "paragraph",
@@ -209,7 +211,7 @@ export const story = {
     },
     {
       type: "paragraph",
-      text: "As The Prattic gained mainstream popularity on campus, the founders set loftier goals for what the space could become. During the cut-throat Democratic primary race for Illinois’ 9th congressional district in March, they hosted 27-year-old progressive candidate Kat Abughazaleh, who performed a politics-infused stand-up routine poking fun at her opponents.",
+      text: "As The Prattic began to find mainstream popularity on campus, the founders set loftier goals for what the space could become. During the cutthroat Democratic primary race for Illinois’ 9th Congressional District in March, they hosted 27-year-old progressive candidate Kat Abughazaleh, who performed a [politics-infused stand-up routine](https://dailynorthwestern.com/2026/03/09/top-stories/abughazaleh-courts-student-voters-at-the-prattic-pokes-fun-at-critics/) poking fun at her opponents.",
     },
     {
       type: "paragraph",
@@ -251,11 +253,15 @@ export const story = {
     },
     {
       type: "paragraph",
-      text: "The Prattic’s philanthropy work culminated in what Garcia-Bryce called The Prattic’s proudest accomplishment: a five-day, multi-venue comedy festival in May that brought together comedians from NU, Chicago and across the country.",
+      text: "The Prattic’s philanthropy work culminated in what Garcia-Bryce called The Prattic’s proudest accomplishment: a five-day, multi-venue comedy festival in May that brought together comedians from NU, Chicago and across the country to raise money for immigrant rights.",
     },
     {
       type: "paragraph",
-      text: "“Prattic Fringe Festival,” which took place on May 7-11, was the product of seven months of phone calls, emails and meetings between Garcia-Bryce, Heller and Hirsch.",
+      text: "“Prattic Fringe Festival,” which took place on May 7-11, was the product of seven months of phone calls, emails and meetings between Garcia-Bryce, Heller and Hirsch. The festival included comedy workshops, performances from student comedy groups, a “Best of Chicago” comedy showcase, and even hypnotist Chris Jones of “America’s Got Talent” fame.",
+    },
+    {
+      type: "paragraph",
+      text: "Performances and workshops were spread across seven different Chicago performance spaces, including The Prattic itself.",
     },
     {
       type: "paragraph",
@@ -263,11 +269,11 @@ export const story = {
     },
     {
       type: "paragraph",
-      text: "Heller said he fantasized about a festival where “everyone in Chicago showed up, and a million people did it, and NBC gave (them) all jobs and a Netflix special.” He said he was naive about the amount of work that would be involved in organizing an event of such scale.",
+      text: "Heller said he fantasized about a festival where “everyone in Chicago came, and a million people did it, and NBC gave (them) all jobs and a Netflix special.” He said he was naive about the amount of work that would be involved in organizing an event of such scale.",
     },
     {
       type: "paragraph",
-      text: "Even so, Heller said he wouldn’t have changed a thing about how the festival turned out. The five-day festival ended up raising $4,000 for the Illinois Coalition for Immigrant and Refugee Rights.",
+      text: "Even so, Heller said he wouldn’t have changed a thing about how the festival turned out. Through merchandise and ticket sales, the five-day festival ended up raising approximately $4,000 for the Illinois Coalition for Immigrant and Refugee Rights.",
     },
     {
       type: "paragraph",
@@ -306,15 +312,15 @@ Looking back, Mikhail called The Prattic a “cultural moment” for the NU comm
 
     {
       type: "paragraph",
-      text: "Inspired by The Prattic, Communication senior Andrew Mikhail has organized two stand-up comedy events in the last two years. His sophomore year, he organized a stand-up show in the basement of an off-campus fraternity house with his friends.",
+      text: "Inspired by The Prattic, Communication senior Andrew Mikhail has organized two stand-up comedy events in the last two years. During his sophomore year, he organized a stand-up show in the basement of an off-campus fraternity house with his friends.",
     },
     {
       type: "paragraph",
-      text: "Mikhail called The Prattic’s success a “cultural moment” for NU, one that he’s not sure could be recreated with the same level of success.",
+      text: "Mikhail called The Prattic’s success a “cultural moment” for NU, one that he’s not sure could be recreated to the same extent.",
     },
     {
       type: "paragraph",
-      text: "“I think so much of it was the guys running it,” he said. “It's hard to replicate.”",
+      text: "“I think so much of it was the guys running it,” he said. “It’s hard to replicate.”",
     },
     {
       type: "paragraph",
@@ -322,7 +328,7 @@ Looking back, Mikhail called The Prattic a “cultural moment” for the NU comm
     },
     {
       type: "paragraph",
-      text: "In recent months, Rozaidi has also taken it upon himself to organize comedy events within Evanston. In September, he and Chicago comedian Nolan Raymond hosted the first “Laughs at Local Note”, a stand-up comedy show occurring monthly at the Local Note Jazz Club. Prattic regulars, including May and Mikhail, performed in the program’s inaugural show.",
+      text: "In recent months, Rozaidi has also taken it upon himself to organize comedy events within Evanston. In September, he and Chicago comedian Nolan Raymond hosted the first “Laughs at Local Note”, a stand-up comedy show occurring monthly at the [Local Note Jazz Club](https://dailynorthwestern.com/2026/10/30/city/local-note/). Prattic regulars, including May and Mikhail, performed in the program’s inaugural show.",
     },
     {
       type: "paragraph",
@@ -334,7 +340,7 @@ Looking back, Mikhail called The Prattic a “cultural moment” for the NU comm
     },
     {
       type: "paragraph",
-      text: "Prof. Vakil is collaborating with Norris to bring monthly comedy showcases to Luna’s Pub featuring NU and Chicago comedians. The first “NU x Chicago Comedy Night” was headlined by Apple TV-featured comedian Kristen Toomey and featured Rozaidi as a student performer.",
+      text: "Prof. Vakil is collaborating with Norris to bring monthly comedy showcases to Luna’s Pub featuring NU and Chicago comedians. [The first “NU x Chicago Comedy Night”](https://dailynorthwestern.com/2026/10/23/lateststories/laughter-fills-lunas-pub-for-first-nu-x-chicago-comedy-night-event/) was headlined by Apple TV-featured comedian Kristen Toomey and featured Rozaidi as a student performer.",
     },
     {
       type: "paragraph",

@@ -73,11 +73,21 @@ updateProgress();
 const video = document.querySelector('[data-hero-video]');
 if (video) {
   const syncHeroMotion = () => {
+    video.defaultMuted = true;
     video.muted = true;
+    video.playsInline = true;
     video.autoplay = !reduced.matches;
     if (reduced.matches) video.pause();
     else video.play().catch(() => { /* The dark background preserves text readability if autoplay is unavailable. */ });
   };
   reduced.addEventListener('change', syncHeroMotion);
+  video.addEventListener('loadeddata', syncHeroMotion);
+  video.addEventListener('canplay', syncHeroMotion);
+  addEventListener('pageshow', syncHeroMotion);
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) syncHeroMotion();
+  });
+  // A first interaction can unlock playback when the browser blocks autoplay.
+  document.addEventListener('touchstart', syncHeroMotion, { once: true, passive: true });
   syncHeroMotion();
 }

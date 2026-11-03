@@ -16,7 +16,8 @@ const { hero } = story;
     {story.contentWarning && <p class="hero-warning">Content warning: {story.contentWarning}</p>}
   </div>
   <div class="hero-visual" aria-hidden="true">
-    <video class="hero-media" autoplay loop muted playsinline preload="auto" data-hero-video tabindex="-1"><source src={`${asset(hero.video)}#t=0.001`} type="video/mp4" /></video>
+    <video class="hero-media" autoplay loop muted playsinline preload="auto" poster={asset('/assets/prattic-poster.jpg')} data-hero-video tabindex="-1"><source src={asset(hero.video)} type="video/mp4" /></video>
+    <img class="hero-media hero-poster" src={asset('/assets/prattic-poster.jpg')} alt="" />
   </div>
   <a href="#story-body" class="scroll-cue" aria-label="Scroll to article"><span aria-hidden="true">↓</span></a>
 </section>

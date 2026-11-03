@@ -62,6 +62,7 @@
   overflow: hidden;
 }
 .hero-visual::after {
+  z-index: 2;
   content: "";
   position: absolute;
   inset: 0;
@@ -79,6 +80,16 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
+}
+.hero-poster {
+  z-index: 1;
+  pointer-events: none;
+}
+.hero-visual.is-playing .hero-poster {
+  display: none;
+}
+.hero-media::-webkit-media-controls-start-playback-button {
+  display: none;
 }
 .scroll-cue {
   position: absolute;
@@ -498,7 +509,7 @@ figcaption {
   .opening-illustrations .decorative-illustration:first-child {
     float: left;
     width: min(70vw, 250px);
-    margin: 0 12px 12px 20px;
+    margin: 0 17px 12px 20px;
     shape-outside: var(--illustration-shape);
     shape-margin: 12px;
   }

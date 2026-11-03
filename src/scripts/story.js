@@ -72,6 +72,10 @@ addEventListener('resize', scheduleProgress);
 updateProgress();
 const video = document.querySelector('[data-hero-video]');
 if (video) {
+  const heroVisual = video.closest('.hero-visual');
+  video.addEventListener('playing', () => heroVisual?.classList.add('is-playing'));
+  video.addEventListener('pause', () => heroVisual?.classList.remove('is-playing'));
+  video.addEventListener('error', () => heroVisual?.classList.remove('is-playing'));
   const syncHeroMotion = () => {
     video.defaultMuted = true;
     video.muted = true;

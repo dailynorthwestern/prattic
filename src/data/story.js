@@ -32,6 +32,23 @@ export const story = {
   // Optional warning; leave empty to omit it.
   contentWarning: "",
   sample: false,
+  contactEmails: ["jackgreenspan2028@u.northwestern.edu"],
+  // URL PLACEHOLDERS: Replace each "#related-stories-heading" with the real
+  // article URL. Until then, these links stay at the Related Stories heading.
+  relatedStories: [
+    {
+      title: "Laughter fills Luna’s Pub for first NU x Chicago Comedy Night event",
+      url: "https://dailynorthwestern.com/2026/10/23/lateststories/laughter-fills-lunas-pub-for-first-nu-x-chicago-comedy-night-event/", // TODO: Add this story's URL.
+    },
+    {
+      title: "NU senior Jackson Heller: The man in The Prattic",
+      url: "https://dailynorthwestern.com/2026/02/26/ae/nu-senior-jackson-heller-the-man-in-the-prattic/", // TODO: Add this story's URL.
+    },
+    {
+      title: "Abughazaleh courts student voters at Prattic, pokes fun at critics",
+      url: "https://dailynorthwestern.com/2026/03/09/top-stories/abughazaleh-courts-student-voters-at-the-prattic-pokes-fun-at-critics/", // TODO: Add this story's URL.
+    },
+  ],
   hero: {
     video: "/assets/PRATTIC.mp4",
     showDek: false,

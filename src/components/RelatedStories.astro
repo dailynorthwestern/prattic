@@ -1,0 +1,13 @@
+---
+import { safeURL } from '../lib/content.js';
+const { emails = [], stories = [] } = Astro.props;
+---
+<section class="related-stories" aria-labelledby="related-stories-heading">
+  <div class="reading-column">
+    {emails.map(email => <p class="related-stories-email"><strong>Email:</strong> <a href={`mailto:${email}`}>{email}</a></p>)}
+    <h2 id="related-stories-heading">Related Stories:</h2>
+    <ul role="list">
+      {stories.map(story => <li><span aria-hidden="true">— </span><a href={safeURL(story.url)}>{story.title}</a></li>)}
+    </ul>
+  </div>
+</section>

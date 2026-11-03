@@ -1,0 +1,55 @@
+// Customize only this section using these four color variables.
+.related-stories {
+  --related-background: #4f210f;
+  --related-heading: #e3ded4;
+  --related-link: #a96b51;
+  --related-link-hover: #1e32ca;
+
+  clear: both;
+  padding-block: 0px 80px;
+  background: var(--related-background);
+  color: var(--related-heading);
+  font: 400 20px/1.4 var(--font-editorial);
+  overflow-wrap: anywhere;
+
+  .related-stories-email {
+    margin: 0 0 1em;
+  }
+  .related-stories-email strong,
+  h2 {
+    color: var(--related-heading);
+    font-weight: 700;
+  }
+  h2 {
+    margin: 1em 0 0.8em;
+    font-size: inherit;
+    line-height: inherit;
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    margin: 0 0 0.8em;
+  }
+  li:last-child {
+    margin-bottom: 0;
+  }
+  a {
+    color: var(--related-link);
+    text-decoration: none;
+    text-underline-offset: 2px;
+  }
+  a:hover,
+  a:focus-visible {
+    color: var(--related-link-hover);
+    text-decoration: underline;
+  }
+}
+
+@media (max-width: 700px) {
+  .related-stories {
+    font-size: 18px;
+  }
+}

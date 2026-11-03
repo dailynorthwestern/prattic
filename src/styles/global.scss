@@ -1,12 +1,13 @@
 @use "brand";
 @use "article";
+@use "related-stories";
 :root {
   --daily-purple: #501e4c;
   --font-editorial: Georgia, "Times New Roman", serif;
   --text-primary: #E3DED4;
   --background-primary: #4f210f;
   --purple: #501e4c;
-  --purple-light: #b6acd1;
+  --purple-light: #e5a6e1;
   --purple-dark: #501e4c;
   --burgundy: #5b1d54;
   --ink: #17151a;

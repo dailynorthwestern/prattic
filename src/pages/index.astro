@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Hero from '../components/Hero.astro';
 import ArticleBody from '../components/ArticleBody.astro';
+import RelatedStories from '../components/RelatedStories.astro';
 import { story } from '../data/story.js';
 import { validateStory } from '../lib/content.js';
 validateStory(story);
@@ -11,6 +12,7 @@ validateStory(story);
 <Layout story={story}>
   <Header />
   <main id="main-content"><article><Hero story={story} /><ArticleBody blocks={story.blocks} sample={story.sample} illustrations={story.illustrations} />
+    <RelatedStories emails={story.contactEmails} stories={story.relatedStories} />
   </article></main>
   <Footer credits={story.credits} />
 </Layout>

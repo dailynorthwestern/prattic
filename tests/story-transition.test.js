@@ -2,6 +2,13 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { storyTransitionOpacity } from '../src/lib/story-transition.js';
 
+test('mobile clears over half the scroll distance while desktop keeps its range', () => {
+  assert.equal(storyTransitionOpacity(800, 1400, 800, 0.5), 0.96);
+  assert.equal(storyTransitionOpacity(650, 1250, 800, 0.5), 0.48);
+  assert.equal(storyTransitionOpacity(500, 1100, 800, 0.5), 0);
+  assert.equal(storyTransitionOpacity(500, 1100, 800), 0.48);
+});
+
 test('story entry starts dark and clears exactly as the fifth paragraph enters', () => {
   assert.equal(storyTransitionOpacity(900, 1200, 800), 0.96);
   assert.equal(storyTransitionOpacity(800, 1100, 800), 0.96);

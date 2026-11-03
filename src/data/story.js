@@ -80,7 +80,7 @@ export const story = {
     },
     {
       type: "paragraph",
-      illustration: { image: toilet, side: "right" },
+      illustration: { image: toilet, side: "right", mobilePosition: "after" },
       text: "Using tips he had saved up from his time delivering pizzas at Domino’s, Heller purchased $200 worth of lawn chairs from a wholesaler. The housemates transformed their bare-bones, wood-paneled attic into a venue where comedians of all experience levels could perform every Monday night. The dark, low-ceilinged space, with beer cans nailed to the wall and a broken toilet serving as a centerpiece, was as weird as it was comforting.",
     },
     {

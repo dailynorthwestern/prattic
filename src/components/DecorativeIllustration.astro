@@ -1,10 +1,10 @@
 ---
 import { getImage } from 'astro:assets';
-const { image, side = 'left', anchored = false, variant } = Astro.props;
+const { image, side = 'left', anchored = false, variant, visibility } = Astro.props;
 // Use the same transparent bitmap for rendering and CSS alpha wrapping.
 const illustration = await getImage({ src: image, width: 1000, format: 'png' });
 ---
-<img class:list={['decorative-illustration', `decorative-illustration--${side === 'right' ? 'right' : 'left'}`, { 'decorative-illustration--anchored': anchored }, variant && `decorative-illustration--${variant}`]}
+<img class:list={['decorative-illustration', `decorative-illustration--${side === 'right' ? 'right' : 'left'}`, { 'decorative-illustration--anchored': anchored }, variant && `decorative-illustration--${variant}`, visibility && `decorative-illustration--${visibility}-only`]}
   style={`--illustration-shape: url("${illustration.src}")`}
   src={illustration.src} width={illustration.attributes.width} height={illustration.attributes.height}
   alt="" aria-hidden="true" decoding="async" />
@@ -40,14 +40,25 @@ const illustration = await getImage({ src: image, width: 1000, format: 'png' });
 
   .decorative-illustration--chair {
     width: min(22vw, 350px);
-    margin-top: -50px;
+    margin-top: -35px;
     margin-right: 300px;
   }
 
   @media (max-width: 1000px) {
     .decorative-illustration { width: 28vw; }
   }
+  @media (min-width: 701px) {
+    .decorative-illustration--mobile-only { display: none; }
+  }
   @media (max-width: 700px) {
-    .decorative-illustration { display: none; }
+    /* Stack artwork between paragraphs so narrow screens keep a full text column. */
+    .decorative-illustration {
+      display: block;
+      float: none;
+      width: min(55vw, 240px);
+      margin: 24px auto;
+      shape-outside: none;
+    }
+    .decorative-illustration--desktop-only { display: none; }
   }
 </style>

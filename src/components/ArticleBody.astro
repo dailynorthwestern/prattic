@@ -18,10 +18,13 @@ const closing = closingStart < 0 ? [] : blocks.slice(closingStart);
   <div class="story-entry-overlay" data-story-entry-overlay aria-hidden="true"></div>
   {sample && <aside class="sample-note reading-column"><span class="sample-dot"></span><span><strong>A story starts here.</strong> This is a sample article. All copy and quotations are illustrative.</span></aside>}
   {opening.length > 0 && <div class="illustrated-opening" data-illustrated-opening>
-    {illustrations.map(illustration => <DecorativeIllustration {...illustration} />)}
+    <div class="opening-illustrations">
+      {illustrations.map(illustration => <DecorativeIllustration {...illustration} />)}
+    </div>
     {opening.map(block => <>
-      {block.illustration && <DecorativeIllustration {...block.illustration} anchored />}
+      {block.illustration && <DecorativeIllustration {...block.illustration} anchored visibility={block.illustration.mobilePosition === 'after' ? 'desktop' : undefined} />}
       <p class:list={['body-copy', { lead: block.lead }]} data-reveal={block.animate} set:html={inline(block.text)} />
+      {block.illustration?.mobilePosition === 'after' && <DecorativeIllustration {...block.illustration} anchored visibility="mobile" />}
     </>)}
   </div>}
   {blocks.slice(openingCount, closingStart < 0 ? blocks.length : closingStart).map((block, index) => <>

@@ -15,7 +15,7 @@ export function inline(text = '') {
 }
 export const asset = (path) => typeof path === 'string' && path.startsWith('/') && !path.startsWith('//') ? `${import.meta.env?.BASE_URL || '/'}${path.slice(1)}` : path;
 export function validateStory(story) {
-  if (!story.title || !story.dek || !story.authors?.length || !/^\d{4}-\d{2}-\d{2}$/.test(story.date) || Number.isNaN(Date.parse(story.date))) throw new Error('story.js needs title, dek, authors, and an ISO publication date.');
+  if (!story.title || !story.authors?.length || !/^\d{4}-\d{2}-\d{2}$/.test(story.date) || Number.isNaN(Date.parse(story.date))) throw new Error('story.js needs title, authors, and an ISO publication date.');
   const image = (value) => { if (!value?.src || !value.alt || !value.width || !value.height) throw new Error('Every image needs src, alt, width, and height.'); };
   if (story.hero?.video) {
     if (!/^(https:\/\/|\/(?!\/))/.test(story.hero.video)) throw new Error('Hero video needs an HTTPS URL or a local absolute path.');

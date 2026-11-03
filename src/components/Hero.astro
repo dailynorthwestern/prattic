@@ -7,7 +7,7 @@ const { hero } = story;
   <div class="hero-content">
     <img class="hero-publication" src={asset('/images/dailynu-hero-light.svg')} alt="The Daily Northwestern" width="525" height="47" />
     <h1 id="story-title">{story.title}</h1>
-    {hero.showDek && <p class="hero-dek">{story.dek}</p>}
+    {hero.showDek && story.dek && <p class="hero-dek">{story.dek}</p>}
     <p class="hero-byline">
       {story.authors.map((author, i) => <>{i > 0 && <br />}{author.url ? <a href={safeURL(author.url)}>{author.name}</a> : <span>{author.name}</span>}{author.role && <span>, {author.role}</span>}</>)}
       <span class="meta-dot">·</span>

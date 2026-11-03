@@ -16,7 +16,6 @@ export const story = {
   title:
     "‘It was lightning in a bottle’: NU comics look back on now-defunct Prattic comedy club",
   kicker: "In Focus",
-  dek: "Along the edge of Lake Michigan, a changing shoreline tells a story of place, community and the ties that hold us together.",
   authors: [
     {
       name: "Jack Greenspan, Multimedia Features Editor",
@@ -53,7 +52,6 @@ export const story = {
   ],
   hero: {
     video: "/assets/PRATTIC.mp4",
-    showDek: false,
   },
   credits: [
     { role: "Editor in Chief", name: "Anavi Prakash" },

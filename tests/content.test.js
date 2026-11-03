@@ -3,6 +3,11 @@ import assert from 'node:assert/strict';
 import { inline, safeURL, validateStory } from '../src/lib/content.js';
 const image = { src: '/assets/example.jpg', alt: 'A shoreline', width: 1200, height: 800 };
 const story = () => ({ title: 'Example', dek: 'Example dek', authors: [{ name: 'Reporter' }], date: '2026-10-27', hero: image, blocks: [] });
+test('accepts stories without a dek', () => {
+ const value = story();
+ delete value.dek;
+ assert.doesNotThrow(() => validateStory(value));
+});
 test('renders nested inline formatting and links', () => {
  assert.equal(inline('**A *quiet* day** at [The Daily](https://dailynorthwestern.com/)'), '<strong>A <em>quiet</em> day</strong> at <a href="https://dailynorthwestern.com/">The Daily</a>');
 });
